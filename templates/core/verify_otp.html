@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>تأیید OTP</title>
+</head>
+<body>
+    <h2>تأیید کد OTP</h2>
+    {% if error %}
+        <p style="color:red">{{ error }}</p>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="email" value="{{ email }}">
+        <input type="text" name="otp" placeholder="کد OTP را وارد کنید" required>
+        <button type="submit">تأیید</button>
+    </form>
+</body>
+</html>

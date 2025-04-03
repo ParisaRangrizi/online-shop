@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>اضافه کردن آدرس</title>
+</head>
+<body>
+    <h1>اضافه کردن آدرس</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label>استان: <input type="text" name="province" required></label><br>
+        <label>شهر: <input type="text" name="city" required></label><br>
+        <label>جزئیات: <textarea name="details" required></textarea></label><br>
+        <label>کد پستی: <input type="text" name="postal_code"></label><br>
+        <label>پیش‌فرض: <input type="checkbox" name="is_default"></label><br>
+        <button type="submit">ذخیره</button>
+    </form>
+</body>
+</html>

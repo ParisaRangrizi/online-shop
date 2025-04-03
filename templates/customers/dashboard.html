@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>پنل مشتری</title>
+</head>
+<body>
+    <h1>پنل مشتری</h1>
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <h2>پروفایل</h2>
+    <p>نام: {{ user.first_name }} {{ user.last_name }}</p>
+    <p>ایمیل: {{ user.email }}</p>
+    <p>شماره تماس: {{ user.phone_number }}</p>
+    <a href="{% url 'customers:profile_edit' %}">ویرایش پروفایل</a>
+
+    <h2>تاریخچه سفارش‌ها</h2>
+    <ul>
+        {% for order in orders %}
+            <li>سفارش {{ order.id }} - {{ order.status }} - {{ order.total_price }} تومان - {{ order.created_at }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>آدرس‌ها</h2>
+    <ul>
+        {% for address in addresses %}
+            <li>{{ address }} {% if address.is_default %}(پیش‌فرض){% endif %} - <a href="{% url 'customers:address_edit' address.id %}">ویرایش</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'customers:address_add' %}">اضافه کردن آدرس جدید</a>
+    <p><a href="{%url 'products:landing_page' %}">بازگشت به صفحه اصلی</a></p>
+    <p><a href="{%url 'core:logout' %}">خروج از حساب کاربری</a></p>
+</body>
+</html>

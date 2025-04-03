@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>ویرایش پروفایل</title>
+</head>
+<body>
+    <h1>ویرایش پروفایل</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label>نام: <input type="text" name="first_name" value="{{ user.first_name }}"></label><br>
+        <label>نام خانوادگی: <input type="text" name="last_name" value="{{ user.last_name }}"></label><br>
+        <label>شماره تماس: <input type="text" name="phone_number" value="{{ user.phone_number }}"></label><br>
+        <button type="submit">ذخیره</button>
+    </form>
+</body>
+</html>

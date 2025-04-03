@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>ویرایش آدرس</title>
+</head>
+<body>
+    <h1>ویرایش آدرس</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label>استان: <input type="text" name="province" value="{{ address.province }}" required></label><br>
+        <label>شهر: <input type="text" name="city" value="{{ address.city }}" required></label><br>
+        <label>جزئیات: <textarea name="details" required>{{ address.details }}</textarea></label><br>
+        <label>کد پستی: <input type="text" name="postal_code" value="{{ address.postal_code }}"></label><br>
+        <label>پیش‌فرض: <input type="checkbox" name="is_default" {% if address.is_default %}checked{% endif %}></label><br>
+        <button type="submit">ذخیره</button>
+    </form>
+</body>
+</html>

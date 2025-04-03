@@ -1,0 +1,5 @@
+<form method="POST">
+    {% csrf_token %}
+    <input type="email" name="email" placeholder="ایمیل خود را وارد کنید" required>
+    <button type="submit">ارسال کد OTP</button>
+</form>

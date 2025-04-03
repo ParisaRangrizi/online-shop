@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop with AI - Landing Page</title>
+    <link rel="stylesheet" href="{% static 'css/products/landing_page.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Shop with AI</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="profile-icon">
+            <a href="{% url 'customers:customer_dashboard' %}">
+                <img src="{% static 'image/profile-icon.png' %}" alt="Profile" class="profile-image">
+            </a>
+        </div>
+    </header>
+    <div>
+        <h2>Categories</h2>
+        <ul class="categories">
+            {% for parent in categories %}
+                {% if parent.parent == None %}
+                    <li class="tooltip">{{ parent.name }}
+                        <ul class="subcategories">
+                            {% for category in categories %}
+                                {% if category.parent == parent %}
+                                    <li>{{ category.name }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </section>
+    <section class="hero">
+        <h2>Welcome to Our Shop!</h2>
+        <p>Discover amazing products tailored just for you.</p>
+    </section>
+    <section>
+        <h2>Products</h2>
+        <div class="products">
+            {% for product in products %}
+                <div class="product">
+                    <h3>{{ product.name }}</h3>
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width: 200px;">
+                    {% endif %}
+                    <p>Brand: {{ product.brand }}</p>
+                    <p>{{ product.description }}</p>
+                    <p>Price: {{ product.price }}تومان</p>
+                    <p>Stock: {{ product.stock }}</p>
+                </div>
+            {% empty %}
+                <p>No products available.</p>
+            {% endfor %}
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Shop with AI. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>ورود</title>
+</head>
+<body>
+    <h2>ورود</h2>
+    {% if form.errors %}
+        <p style="color:red">{{ form.non_field_errors }}</p>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">ورود</button>
+    </form>
+    <p><a href="{% url 'core:forgot_password' %}">رمز عبور خود را فراموش کرده‌اید؟</a></p>
+</body>
+</html>
