@@ -1,0 +1,141 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Profile Icon Styles */
+.profile-icon {
+    position: absolute; /* Position it in the header */
+    top: 20px; /* Adjust the vertical position */
+    right: 20px; /* Adjust the horizontal position */
+}
+
+.profile-icon a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.profile-icon img {
+    width: 40px; /* Set the size of the icon */
+    height: 40px;
+    border-radius: 50%; /* Make it circular */
+    border: 2px solid #ddd; /* Optional: Add a border */
+    transition: transform 0.2s ease; /* Add a hover effect */
+}
+
+.profile-icon img:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Hero Section Styles */
+.hero {
+    background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+    color: rgb(217, 20, 20);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* Categories Styles */
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.categories li {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 150px;
+    position: relative;
+}
+
+.subcategories {
+    display: none;
+    list-style: none;
+    padding: 0;
+}
+
+.categories li:hover .subcategories {
+    display: block;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ddd;
+    z-index: 1000;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.categories li:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Products Styles */
+.products {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow wrapping of items */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    gap: 20px; /* Add spacing between products */
+    margin: 20px auto; /* Add margin to center the section */
+    max-width: 1200px; /* Optional: Limit the width of the section */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #007bff;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
